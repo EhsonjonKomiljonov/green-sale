@@ -44,7 +44,7 @@ export const Header = () => {
             <nav className="nav rounded-2">
               <ul className="nav__list d-flex align-items-center justify-content-between ">
                 <li>
-                  <Link to="/">HOME</Link>
+                  <Link to="/">Home</Link>
                 </li>
                 <li>
                   <Link to="/vegetables">Vegetables</Link>

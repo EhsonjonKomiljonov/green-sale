@@ -1,9 +1,22 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/images/logo.svg';
-import Cart from '../../assets/images/cart.png';
 import './header.scss';
 
 export const Header = () => {
+  const [menu, setMenu] = useState(false);
+
+  const openMenu = () => {
+    setMenu(true);
+  };
+
+  const closeMenu = (evt) => {
+    if(evt.target.matches('.menu')) {
+      setMenu(false);
+    }
+    console.log(evt)
+  };
+
   return (
     <header className="site-header">
       <div className="container">
@@ -24,6 +37,9 @@ export const Header = () => {
             </div>
           </div>
           <div className="site-header__center d-flex align-items-center justify-content-between">
+            <button className="menu-btn" onClick={() => openMenu()}>
+              <i class="fa-solid fa-bars"></i>
+            </button>
             <Link to="/">
               <img src={Logo} alt="Brezza" />
             </Link>
@@ -32,12 +48,8 @@ export const Header = () => {
               placeholder="Search for product"
               className="form-control rounded-1"
             />
-            <Link className="cart rounded-1" to="/cart">
-              <span className="cart__img">
-                <img src={Cart} alt="cart" />
-              </span>
-              <span className="cart__count d-inline-block ms-2 me-2">0</span>
-              MY CART/ <span className="cart__price">$0.00</span>
+            <Link className="like rounded-1" to="/cart">
+              <i class="fa fa-heart"></i>
             </Link>
           </div>
           <div className="site-header__bottom">
@@ -64,6 +76,40 @@ export const Header = () => {
               </ul>
             </nav>
           </div>
+        </div>
+      </div>
+      <div className={`menu ${menu ? 'open' : ''}`} onClick={(evt) => closeMenu(evt)}>
+        <div className={`menu__inner ${menu ? 'open' : ''}`}>
+          <label className="px-3 w-100 input-group">
+            <input
+              type="text"
+              placeholder="Search for product"
+              className="form-control"
+            />
+            <button className="search-btn btn">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </label>
+          <ul className="d-flex flex-column">
+            <li>
+              <Link to="/">Bosh sahifa</Link>
+            </li>
+            <li>
+              <Link to="/vegetables">Sabzavotlar</Link>
+            </li>
+            <li>
+              <Link to="/fruits">Mevalar</Link>
+            </li>
+            <li>
+              <Link to="/organic">Poliz ekinlari</Link>
+            </li>
+            <li>
+              <Link to="/about">Biz Haqimizda</Link>
+            </li>
+            <li>
+              <Link to="/faq">FAQ</Link>
+            </li>
+          </ul>
         </div>
       </div>
     </header>

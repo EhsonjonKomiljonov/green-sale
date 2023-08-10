@@ -44,25 +44,22 @@ export const Header = () => {
             <nav className="nav rounded-2">
               <ul className="nav__list d-flex align-items-center justify-content-between ">
                 <li>
-                  <Link to="/">Home</Link>
+                  <Link to="/">Bosh sahifa</Link>
                 </li>
                 <li>
-                  <Link to="/vegetables">Vegetables</Link>
+                  <Link to="/vegetables">Sabzavotlar</Link>
                 </li>
                 <li>
-                  <Link to="/fruits">Fruits</Link>
+                  <Link to="/fruits">Mevalar</Link>
                 </li>
                 <li>
-                  <Link to="/organic">Organic Fruits</Link>
+                  <Link to="/organic">Poliz ekinlari</Link>
                 </li>
                 <li>
-                  <Link to="/blog">Blog</Link>
+                  <Link to="/about">Biz Haqimizda</Link>
                 </li>
                 <li>
-                  <Link to="/pages">Pages</Link>
-                </li>
-                <li>
-                  <Link to="/shop">Shop</Link>
+                  <Link to="/faq">FAQ</Link>
                 </li>
               </ul>
             </nav>

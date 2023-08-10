@@ -15,10 +15,10 @@ export const Hero = () => {
   };
   return (
     <>
-      <section className='hero pt-5 '>
+      <section className='hero pt-5'>
         <div className='container'>
-          <div className='hero__inner row align-items-center '>
-            <div className='col-6'>
+          <div className='hero__inner row justify-content-center  align-items-center '>
+            <div className='col-12 col-sm-8 col-md-6'>
               <Slider {...settings}>
                 <img
                   src={cardBg}
@@ -30,7 +30,7 @@ export const Hero = () => {
                 />{' '}
               </Slider>
             </div>
-            <div className='col-3 d-flex flex-column  gap-4 '>
+            <div className='col-sm-4 col-12 pt-sm-0 col-md-3 pt-3 d-flex flex-column mx-auto mx-sm-0 gap-4 '>
               <img
                 src={cardBg2}
                 alt=''
@@ -40,8 +40,9 @@ export const Hero = () => {
                 alt=''
               />{' '}
             </div>
-            <div className='col-3'>
+            <div className='col-md-3 col-sm-5 col-12 text-center '>
               <img
+                className='w-100 '
                 src={cardBg3}
                 alt=''
               />

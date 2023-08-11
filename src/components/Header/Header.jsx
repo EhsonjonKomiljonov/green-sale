@@ -14,7 +14,6 @@ export const Header = () => {
     if(evt.target.matches('.menu')) {
       setMenu(false);
     }
-    console.log(evt)
   };
 
   return (
@@ -38,7 +37,7 @@ export const Header = () => {
           </div>
           <div className="site-header__center d-flex align-items-center justify-content-between">
             <button className="menu-btn" onClick={() => openMenu()}>
-              <i class="fa-solid fa-bars"></i>
+              <i className="fa-solid fa-bars"></i>
             </button>
             <Link to="/">
               <img src={Logo} alt="Brezza" />
@@ -49,7 +48,7 @@ export const Header = () => {
               className="form-control rounded-1"
             />
             <Link className="like rounded-1" to="/cart">
-              <i class="fa fa-heart"></i>
+              <i className="fa fa-heart"></i>
             </Link>
           </div>
           <div className="site-header__bottom">
@@ -87,7 +86,7 @@ export const Header = () => {
               className="form-control"
             />
             <button className="search-btn btn">
-              <i class="fa-solid fa-magnifying-glass"></i>
+              <i className="fa-solid fa-magnifying-glass"></i>
             </button>
           </label>
           <ul className="d-flex flex-column">

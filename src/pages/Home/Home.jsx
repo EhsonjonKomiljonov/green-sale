@@ -1,11 +1,12 @@
-import React from 'react'
-import { Hero } from '../../components/Hero/Hero'
+import React from 'react';
+import { Hero } from '../../components/Hero/Hero';
+import { Products } from '../../components/Products/Products';
 
 export const Home = () => {
   return (
-    <>
-      <Hero></Hero>
-    
-    </>
-  )
-}
+    <main>
+      <Hero />
+      <Products />
+    </main>
+  );
+};

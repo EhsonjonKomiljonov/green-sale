@@ -15,7 +15,7 @@ export const Hero = () => {
   };
   return (
     <>
-      <section className='hero pt-5'>
+      <section className='hero py-5'>
         <div className='container'>
           <div className='hero__inner row justify-content-center  align-items-center '>
             <div className='col-12 col-sm-8 col-md-6'>

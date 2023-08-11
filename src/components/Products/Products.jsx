@@ -1,13 +1,29 @@
-import React from 'react';
+import './products.scss';
 import { ProductCard } from '../ProductCard/ProductCard';
+import { products } from '../../db/products.js';
+import { useState } from 'react';
 
 export const Products = () => {
+  const [data, setData] = useState(products.slice(0, 3));
+
+  const viewAll = () => {
+    data.length === 3 ? setData(products) : setData(products.slice(0, 3));
+  };
+
   return (
     <section className="products py-5">
       <div className="container">
-        <div className="product__inner">
-          <ProductCard />
+        <h2 className="mb-5">Products</h2>
+        <div className="products__inner d-flex align-items-center flex-wrap">
+          {data.length ? (
+            data.map((item) => <ProductCard obj={item} />)
+          ) : (
+            <h1>Loading...</h1>
+          )}
         </div>
+        <button onClick={() => viewAll()} className="view-btn">
+          {data.length == 3 ? 'View All' : 'Hide All'}
+        </button>
       </div>
     </section>
   );

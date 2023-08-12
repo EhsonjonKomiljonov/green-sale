@@ -5,7 +5,7 @@ export const BlogCard = (props) => {
   const { img, postedBy, comments, date, title, text } = props.props;
 
   return (
-    <div className='col-12  blog__card col-xl-6 pt-xl-0  pt-3'>
+    <div className='col-12 p-0 blog__card col-xl-6 pt-xl-0  w-100 pt-3'>
       <img
         className='w-100'
         src={img}

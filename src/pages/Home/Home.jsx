@@ -1,5 +1,6 @@
 import React from 'react';
 import { Blog } from '../../components/Blog/Blog';
+import { Header } from '../../components/Header/Header';
 import { Footer } from '../../components/Footer/Footer';
 import { Hero } from '../../components/Hero/Hero';
 import { Products } from '../../components/Products/Products';
@@ -7,12 +8,11 @@ import { Products } from '../../components/Products/Products';
 export const Home = () => {
   return (
     <>
-      <main>
-        <Hero />
-        <Products />
-        <Blog />
-        <Footer />
-      </main>
+      <Header />
+      <Hero />
+      <Products />
+      <Blog />
+      <Footer />
     </>
   );
 };

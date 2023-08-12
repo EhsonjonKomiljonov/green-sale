@@ -4,10 +4,10 @@ import Logo from '../../assets/images/logo.svg';
 import './header.scss';
 
 export const Header = () => {
-  const [menu, setMenu] = useState(false);
   const headerRef = useRef();
   const [scroll, setScroll] = useState(false);
   let lastScrollY = 0;
+  const [menu, setMenu] = useState(false);
 
   const openMenu = () => {
     setMenu(true);

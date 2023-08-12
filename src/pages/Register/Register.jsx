@@ -3,9 +3,9 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import '../../components/Header/header.scss';
-import './login.scss';
+import './register.scss';
 
-export const Login = () => {
+export const Register = () => {
   const [menu, setMenu] = useState(false);
 
   const openMenu = () => {
@@ -19,6 +19,7 @@ export const Login = () => {
   };
 
   const initialValues = {
+    first_name: '',
     email: '',
     password: '',
   };
@@ -28,6 +29,10 @@ export const Login = () => {
   };
 
   const validationSchema = Yup.object({
+    first_name: Yup.string()
+      .required('Iltimos ismingizni kiriting!')
+      .min(2, "Ism 2 harfdan ko'p bo'lishi lozim!")
+      .max(100, "Ism 100 ta harfdan kam bo'lishi lozim!"),
     email: Yup.string()
       .required('Iltimos emailni kiriting!')
       .min(9, 'Email uzunligi 9 tadan ortiq bolishi lozim!')
@@ -79,16 +84,14 @@ export const Login = () => {
           </ul>
         </nav>
       </div>
-
-      <div className="login-menu">
+      <div className="signup-menu">
         <button className="menu-btn" onClick={() => openMenu()}>
           <i className="fa-solid fa-bars"></i>
         </button>
       </div>
-
-      <section className="login">
+      <section className="sign-up">
         <div className="container">
-          <div className="login__inner">
+          <div className="sign-up__inner">
             <div class="form-box">
               <div class="form-value">
                 <Formik
@@ -97,26 +100,32 @@ export const Login = () => {
                   onSubmit={onSubmit}
                 >
                   <Form>
-                    <h2>Login</h2>
+                    <h2>Register</h2>
                     <div className="inputbox">
-                      <Field name="email" type="email" required />
-                      <label htmlFor>Email</label>
-                      <span className="text-danger fs-6">
+                      <Field className="input" name="first_name" type="text" />
+                      <label className="label">Ismingiz</label>
+                      <span className="text-warning fs-6">
+                        <ErrorMessage name="first_name" />
+                      </span>
+                    </div>
+                    <div className="inputbox">
+                      <Field className="input" name="email" type="email" />
+                      <label className="label">Email</label>
+                      <span className="text-warning fs-6">
                         <ErrorMessage name="email" />
                       </span>
                     </div>
                     <div className="inputbox">
-                      <Field name="password" type="password" required />
-                      <label htmlFor>Password</label>
-                      <span className="text-danger fs-6">
+                      <Field name="password" type="password" />
+                      <label className="label-two">Password</label>
+                      <span className="text-warning fs-6">
                         <ErrorMessage name="password" />
                       </span>
                     </div>
-                    <button>Log in</button>
+                    <button>Send</button>
                     <div className="register">
                       <p>
-                        Akkauntingiz yo'qmi ?
-                        <Link to="/register"> Register </Link>
+                        Akkauntingiz bormi ?<Link to="/login"> Login </Link>
                       </p>
                     </div>
                   </Form>

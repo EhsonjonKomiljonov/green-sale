@@ -6,11 +6,13 @@ import { Products } from '../../components/Products/Products';
 
 export const Home = () => {
   return (
-    <main>
-      <Hero />
-      <Products />
-      <Blog />
-      <Footer />
-    </main>
+    <>
+      <main>
+        <Hero />
+        <Products />
+        <Blog />
+        <Footer />
+      </main>
+    </>
   );
 };

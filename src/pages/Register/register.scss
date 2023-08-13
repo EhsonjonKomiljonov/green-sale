@@ -11,8 +11,15 @@
   min-height: 100vh;
   background-position: center;
   width: 100%;
-  padding: 20px 0;
-  background: url('../../assets/images/register-bg.jpg') no-repeat;
+  padding: 60px 0;
+  background-image: linear-gradient(
+      360deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.37) 69.5%,
+      rgba(0, 0, 0, 0.5) 90.34%
+    ),
+    url('../../assets/images/register-bg.jpg');
+  background-repeat: no-repeat;
   background-size: cover;
 
   &__inner {
@@ -22,7 +29,8 @@
 
   .form-box {
     position: relative;
-    width: 400px;
+    width: 100%;
+    max-width: 730px;
     padding: 50px 20px;
     background: transparent;
     border: 10px solid rgba(255, 255, 255, 0.5);
@@ -132,7 +140,34 @@
   }
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 740px) {
+  .sign-up {
+    .inputbox {
+      min-width: 0px;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .sign-up {
+    .inputbox {
+      min-width: 310px;
+      margin: 15px 0;
+    }
+
+    label {
+      font-size: 14px !important;
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .sign-up {
+    h2 {
+      font-size: 25px;
+    }
+  }
+
   .form-box {
     padding: 35px 15px !important;
   }

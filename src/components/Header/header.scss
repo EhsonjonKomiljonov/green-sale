@@ -141,6 +141,10 @@
       font-weight: bold;
     }
 
+    li:last-child {
+      padding: 0 0 0 20px;
+    }
+
     a {
       letter-spacing: 1.5px;
       color: #fff;
@@ -213,8 +217,10 @@
 
 @media screen and (max-width: 1290px) {
   .site-header__bottom {
-    max-width: 765px;
-    left: calc(50% - 380px);
+    .nav {
+      max-width: 770px;
+      left: calc(50% - 380px);
+    }
   }
 }
 
@@ -222,7 +228,7 @@
   .site-header {
     padding: 5px 0 15px;
   }
-  
+
   .menu-btn {
     display: flex;
     align-items: center;
@@ -232,7 +238,7 @@
   .site-header__center {
     align-items: flex-end !important;
 
-    input {
+    label {
       display: none;
     }
   }

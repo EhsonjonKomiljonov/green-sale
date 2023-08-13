@@ -1,0 +1,66 @@
+.verify {
+  height: 100vh;
+  background-image: url('../../assets/images/verify-contact-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__inner {
+    height: 100vh;
+
+    .verify__password {
+      width: 100%;
+      max-width: 670px;
+      background-color: #60be7491;
+      backdrop-filter: blur(10px);
+      padding: 80px 50px;
+      border-radius: 10px;
+
+      div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      input {
+        outline: none;
+        width: 100px;
+        height: 120px;
+        border-radius: 15px;
+        border: 2px solid #c3ca48;
+        font-size: 55px;
+        text-align: center;
+
+        &:focus {
+          outline: 2px solid #267c37;
+        }
+      }
+
+      input[type='number']::-webkit-inner-spin-button,
+      input[type='number']::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+    button {
+      display: block;
+      width: 100%;
+      margin-top: 30px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background-color: #4350cd;
+      color: #fff;
+      transition: all 0.4s ease;
+
+      &:hover {
+        background-color: transparent;
+        outline: 3px solid #4350cd;
+        scale: 1.1;
+      }
+
+      &:active {
+        scale: 1;
+      }
+    }
+  }
+}

@@ -29,20 +29,20 @@ export const Blog = () => {
   ];
   return (
     <>
-      <section className='blog'>
-        <div className='container'>
-          <div className='blog__inner'>
-            <img
-              className='w-100'
-              src={Banner}
-              alt=''
-            />
+      <section className="blog">
+        <div className="container">
+          <div className="blog__inner">
+            <img className="w-100" src={Banner} alt="" />
             <div
-              className='row pt-4 blog__cards justify-content-between m-0 
-            '
+              className="row pt-4 blog__cards justify-content-between m-0 
+            "
             >
               {propsCard.map((el) => {
-                return <BlogCard props={el} />;
+                return (
+                  <div key={el.date} className='col'>
+                    <BlogCard props={el} />
+                  </div>
+                );
               })}
             </div>
           </div>

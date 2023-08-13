@@ -101,14 +101,14 @@ export const Login = () => {
                     <div className="inputbox">
                       <Field name="email" type="email" required />
                       <label htmlFor>Email</label>
-                      <span className="text-danger fs-6">
+                      <span className="text-danger">
                         <ErrorMessage name="email" />
                       </span>
                     </div>
                     <div className="inputbox">
                       <Field name="password" type="password" required />
                       <label htmlFor>Password</label>
-                      <span className="text-danger fs-6">
+                      <span className="text-danger">
                         <ErrorMessage name="password" />
                       </span>
                     </div>

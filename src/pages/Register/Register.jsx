@@ -104,21 +104,21 @@ export const Register = () => {
                     <div className="inputbox">
                       <Field className="input" name="first_name" type="text" />
                       <label className="label">Ismingiz</label>
-                      <span className="text-warning fs-6">
+                      <span className="text-danger">
                         <ErrorMessage name="first_name" />
                       </span>
                     </div>
                     <div className="inputbox">
                       <Field className="input" name="email" type="email" />
                       <label className="label">Email</label>
-                      <span className="text-warning fs-6">
+                      <span className="text-danger">
                         <ErrorMessage name="email" />
                       </span>
                     </div>
                     <div className="inputbox">
                       <Field name="password" type="password" />
                       <label className="label-two">Password</label>
-                      <span className="text-warning fs-6">
+                      <span className="text-danger">
                         <ErrorMessage name="password" />
                       </span>
                     </div>

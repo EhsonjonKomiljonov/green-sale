@@ -38,7 +38,7 @@ export const Blog = () => {
               alt=''
             />
             <div
-              className='row pt-4 blog__cards m-0 
+              className='row pt-4 blog__cards justify-content-between m-0 
             '
             >
               {propsCard.map((el) => {

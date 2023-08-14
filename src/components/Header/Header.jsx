@@ -1,13 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/images/logo.svg';
+import { removeToken } from '../../redux/token/tokenAction';
 import './header.scss';
 
 export const Header = () => {
-  const headerRef = useRef();
+  const dispatch = useDispatch();
+  const token = useSelector((state) => state.token.token);
   const [scroll, setScroll] = useState(false);
   let lastScrollY = 0;
   const [menu, setMenu] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const openMenu = () => {
     setMenu(true);
@@ -42,7 +46,7 @@ export const Header = () => {
   }, []);
 
   return (
-    <header className="site-header" ref={headerRef}>
+    <header className="site-header">
       <div className="container">
         <div className="site-header__inner">
           <div className="site-header__top d-flex align-items-center justify-content-between mb-4">
@@ -53,7 +57,20 @@ export const Header = () => {
               </select>
               <span className="localization__arrow"></span>
             </div>
-            <div className="site-header__sign">
+            <button
+              className={`btn text-white ${token ? '' : 'd-none'}`}
+              onClick={() => {
+                setLoading(true);
+                setTimeout(() => {
+                  dispatch(removeToken());
+                  localStorage.removeItem('token');
+                  setLoading(false);
+                }, 3000);
+              }}
+            >
+              Log Out
+            </button>
+            <div className={`site-header__sign ${token ? 'd-none' : ''}`}>
               <Link className="me-3" to="/login">
                 Login
               </Link>

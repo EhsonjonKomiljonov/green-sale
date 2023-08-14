@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const host = 'http://95.130.227.180:5000';
+const host = 'http://95.130.227.180';
 
 export const API = {
   registerUser: (user) => axios.post(host + '/api/common/auth/register', user),

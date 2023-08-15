@@ -17,7 +17,8 @@ export const VerifyContact = () => {
   const dispatch = useDispatch();
   const { auth } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [timer, setTimer] = useState(90);
+  const [timer, setTimer] = useState(10);
+  const [isError, setIsError] = useState(false);
 
   const { mutate: newPassword } = useMutation(
     'new-verify-password',
@@ -25,10 +26,12 @@ export const VerifyContact = () => {
     {
       onSuccess: (data) => {
         if (data.data.result) {
+          setIsError(false);
           toast.info('Yangi parol yuborildi!');
         }
       },
       onError: (err) => {
+        setIsError(true);
         toast.error(
           `Ups parol yuborishlikda qandaydur hatolik chiqdi!
            Qaytadan urinib ko'ring`
@@ -187,7 +190,6 @@ export const VerifyContact = () => {
                       onChange={handleChange(formik, 'code5')}
                     />
                   </div>
-
                   <GreenButton text="Yuborish" type="submit" />
                 </Form>
               )}
@@ -197,6 +199,11 @@ export const VerifyContact = () => {
                 Agar parol kelmasa, siz{' '}
                 <span className="text-danger">{timer}</span> soniyadan kegin
                 yangi parolni olishingiz mumkun.
+              </p>
+            ) : isError ? (
+              <p className="text-center mt-3">
+                Parol yuborishlikda qandaydur xatolik ketdi! <br />{' '}
+                <span className='text-danger' >Qaytaddan urinib ko'ring!</span>
               </p>
             ) : (
               <p className="text-center mt-3">Sizga yangi parol yuborildi.</p>

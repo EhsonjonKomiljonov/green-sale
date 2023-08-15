@@ -1,7 +1,7 @@
 .verify {
   height: 100vh;
-  background-image: url('../../assets/images/verify-contact-bg.jpg');
-  background-repeat: no-repeat;
+  background-image: linear-gradient(-45deg, #1c6b92, #1b6f89 60%, #1f8f45 98%);
+  background-size: 400%;
   background-size: cover;
 
   &__inner {
@@ -9,11 +9,21 @@
 
     .verify__password {
       width: 100%;
-      max-width: 670px;
-      background-color: #60be7491;
+      max-width: 560px;
+      background-color: #ffffffc6;
       backdrop-filter: blur(10px);
-      padding: 80px 50px;
-      border-radius: 10px;
+      padding: 40px 50px;
+      border-radius: 6px;
+      box-shadow: 7px 5px 100px #222;
+
+      h2 {
+        font-family: 'Raleway';
+        color: #222;
+      }
+
+      p {
+        color: #222;
+      }
 
       div {
         display: flex;
@@ -23,15 +33,15 @@
 
       input {
         outline: none;
-        width: 100px;
-        height: 120px;
+        width: 80px;
+        height: 100px;
         border-radius: 15px;
-        border: 2px solid #c3ca48;
+        border: 2px solid #1c6b92;
         font-size: 55px;
         text-align: center;
 
         &:focus {
-          outline: 2px solid #267c37;
+          outline: 2px solid #1c6b92b0;
         }
       }
 
@@ -41,26 +51,88 @@
         margin: 0;
       }
     }
+
     button {
-      display: block;
       width: 100%;
       margin-top: 30px;
-      padding: 10px 20px;
+      padding: 10px;
+      border-radius: 30px;
+      font-size: 20px;
       border: none;
-      border-radius: 8px;
-      background-color: #4350cd;
       color: #fff;
-      transition: all 0.4s ease;
+      background-color: #209240;
+      transition: all 0.4s ease-in-out;
 
       &:hover {
-        background-color: transparent;
-        outline: 3px solid #4350cd;
-        scale: 1.1;
+        background-color: #03774c;
+        color: #ffffff;
       }
+    }
+  }
+}
 
-      &:active {
-        scale: 1;
+// @keyframes gradientAnimation {
+//   0% {
+//     background-position: 0% 50%;
+//   }
+//   50% {
+//     background-position: 100% 50%;
+//   }
+//   100% {
+//     background-position: 0% 50%;
+//   }
+// }
+
+@media screen and (max-width: 550px) {
+  .verify__password {
+    padding: 30px !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .verify {
+    &__inner {
+      .verify__password {
+        max-width: 400px;
+
+        input {
+          width: 60px;
+          height: 70px;
+          border-radius: 10px;
+          font-size: 30px;
+        }
+
+        button {
+          width: 50%;
+          display: block;
+          margin: 20px auto;
+          font-size: 16px;
+        }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .verify {
+    &__inner {
+      .verify__password {
+        max-width: 300px;
+
+        p {
+          margin-bottom: 10px !important;
+        }
+
+        input {
+          width: 40px;
+          height: 50px;
+          font-size: 23px;
+          border-radius: 5px;
+        }
+      }
+    }
+    p {
+      font-size: 12.5px;
     }
   }
 }

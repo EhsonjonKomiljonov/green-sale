@@ -119,13 +119,10 @@ export const Header = () => {
                   <Link to="/">Bosh sahifa</Link>
                 </li>
                 <li>
-                  <Link to="/vegetables">Sabzavotlar</Link>
+                  <Link to="/buy-vacancy">Olish uchun vakansiya</Link>
                 </li>
                 <li>
-                  <Link to="/fruits">Mevalar</Link>
-                </li>
-                <li>
-                  <Link to="/organic">Poliz ekinlari</Link>
+                  <Link to="/sell-vacancy">Sotish uchun vakansiya</Link>
                 </li>
                 <li>
                   <Link to="/about">Biz Haqimizda</Link>
@@ -158,13 +155,10 @@ export const Header = () => {
               <Link to="/">Bosh sahifa</Link>
             </li>
             <li>
-              <Link to="/vegetables">Sabzavotlar</Link>
+              <Link to="/buy-vacancy">Olish uchun vakansiya</Link>
             </li>
             <li>
-              <Link to="/fruits">Mevalar</Link>
-            </li>
-            <li>
-              <Link to="/organic">Poliz ekinlari</Link>
+              <Link to="/sell-vacancy">Sotish uchun vakansiya</Link>
             </li>
             <li>
               <Link to="/about">Biz Haqimizda</Link>

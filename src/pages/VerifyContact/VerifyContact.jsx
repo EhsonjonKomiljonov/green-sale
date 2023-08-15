@@ -1,5 +1,5 @@
 import { Field, Form, Formik } from 'formik';
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import { API } from '../../API/api';
@@ -8,17 +8,56 @@ import * as Yup from 'yup';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { setToken } from '../../redux/token/tokenAction';
+import { motion } from 'framer-motion';
 import 'react-toastify/dist/ReactToastify.css';
 import './verify-contact.scss';
+import { GreenButton } from '../../components/GreenButton/GreenButton';
 
 export const VerifyContact = () => {
   const dispatch = useDispatch();
   const { auth } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [timer, setTimer] = useState(90);
+
+  const { mutate: newPassword } = useMutation(
+    'new-verify-password',
+    API.sendContact,
+    {
+      onSuccess: (data) => {
+        if (data.data.result) {
+          toast.info('Yangi parol yuborildi!');
+        }
+      },
+      onError: (err) => {
+        toast.error(
+          `Ups parol yuborishlikda qandaydur hatolik chiqdi!
+           Qaytadan urinib ko'ring`
+        );
+      },
+    }
+  );
+
+  let time;
+
+  const timerFunc = () => {
+    time = setTimeout(() => {
+      if (timer === 0) {
+        func();
+        newPassword(auth);
+      } else {
+        setTimer(timer - 1);
+      }
+    }, 1000);
+  };
+
+  function func() {
+    clearTimeout(time);
+  }
 
   useEffect(() => {
-    if (JSON.stringify(auth) == '{}') return navigate('/');
-  }, []);
+    timerFunc();
+    // if (JSON.stringify(auth) == '{}') return navigate('/');
+  }, [timer]);
 
   const initialValues = {
     code1: '',
@@ -44,8 +83,8 @@ export const VerifyContact = () => {
         toast.success("To'g'ri parol!");
 
         setTimeout(() => {
-          navigate('/')
-        }, 3000)
+          navigate('/');
+        }, 3000);
       }
     },
     onError: (err) => {
@@ -90,10 +129,19 @@ export const VerifyContact = () => {
     <section className="verify">
       <div className="container">
         <div className="verify__inner d-flex align-items-center justify-content-center">
-          <div className="verify__password">
-            <h2 className="fs-3 text-center text-white">Parolni tasdiqlang!</h2>
-            <p className="text-center text-white mb-4">
-              Telefon raqamingizga parol yuborildi.
+          <motion.div
+            className="verify__password"
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1, transition: { duration: 0.7 } }}
+          >
+            <h2 className="fs-3 text-center">Parolni kiriting!</h2>
+            <p className="text-center mb-4">
+              Telefonni tasdiqlash uchun{' '}
+              {`+998 ${auth.slice(1, 3)} ${auth.slice(3, 6)}-${auth.slice(
+                6,
+                8
+              )}-${auth.slice(8, 10)} `}
+              raqamiga 5 xonali parol yuborildi.
             </p>
             <Formik
               initialValues={initialValues}
@@ -140,11 +188,20 @@ export const VerifyContact = () => {
                     />
                   </div>
 
-                  <button type="submit">Submit</button>
+                  <GreenButton text="Yuborish" type="submit" />
                 </Form>
               )}
             </Formik>
-          </div>
+            {timer !== 0 ? (
+              <p className="text-center mt-3">
+                Agar parol kelmasa, siz{' '}
+                <span className="text-danger">{timer}</span> soniyadan kegin
+                yangi parolni olishingiz mumkun.
+              </p>
+            ) : (
+              <p className="text-center mt-3">Sizga yangi parol yuborildi.</p>
+            )}
+          </motion.div>
         </div>
       </div>
     </section>

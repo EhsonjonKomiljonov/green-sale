@@ -11,12 +11,14 @@ import { motion } from 'framer-motion';
 import '../../components/Header/header.scss';
 import './register.scss';
 import { districts } from '../../db/districts';
+import { GreenButton } from '../../components/GreenButton/GreenButton';
 
 export const Register = () => {
   const [menu, setMenu] = useState(false);
   const navigate = useNavigate();
   const { setAuth } = useContext(AuthContext);
   document.body.style.overflow = 'hidden';
+
 
   const openMenu = () => {
     setMenu(true);
@@ -71,7 +73,7 @@ export const Register = () => {
       )
       .matches(
         /[\`!@#$%^&*()_+={}\[\]:;\"'<>,.?\\\/]+/,
-        "Parolda bir dona bo'lsa ham simbol ishlatilishi lozim. misol (#$%)"
+        'Parolda simbol ishlatilishi lozim. misol (#$%)'
       ),
   });
 
@@ -279,7 +281,7 @@ export const Register = () => {
                 </div>
 
                 <div className="btn-box">
-                  <button type="submit">Yuborish</button>
+                  <GreenButton text="Yuborish" type="submit" />
                   <Link to="/login">
                     Kirish <i className="fa-solid fa-arrow-right"></i>
                   </Link>
@@ -310,13 +312,10 @@ export const Register = () => {
               <Link to="/">Bosh sahifa</Link>
             </li>
             <li>
-              <Link to="/vegetables">Sabzavotlar</Link>
+              <Link to="/buy-vacancy">Olish uchun vakansiya</Link>
             </li>
             <li>
-              <Link to="/fruits">Mevalar</Link>
-            </li>
-            <li>
-              <Link to="/organic">Poliz ekinlari</Link>
+              <Link to="/sell-vacancy">Sotish uchun vakansiya</Link>
             </li>
             <li>
               <Link to="/about">Biz Haqimizda</Link>

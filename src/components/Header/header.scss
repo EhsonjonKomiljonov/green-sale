@@ -86,12 +86,14 @@
 .site-header__bottom {
   .nav {
     position: absolute;
-    bottom: -28px;
+    bottom: -32px;
     width: 100%;
     padding: 20px 20px;
     border-radius: 6px;
     max-width: 1210px;
     background-color: #fff;
+    border-bottom: 2px solid #60be74;
+    border-top: 2px solid #60be74;
 
     &::before {
       position: absolute;

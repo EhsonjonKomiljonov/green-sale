@@ -121,18 +121,14 @@ export const Register = () => {
 
   return (
     <>
-      <motion.div
-        className="site-header__bottom"
-        initial={{ y: -100 }}
-        animate={{ y: 0, transition: { duration: 0.7 } }}
-      >
+      <div className="site-header__bottom">
         <nav
-          className="nav"
+          className="nav register-nav"
           style={{
             position: 'fixed',
             top: '0',
             left: '0',
-            zIndex: '9',
+            zIndex: '5',
             maxWidth: '100%',
             height: '54px',
             borderRadius: '0',
@@ -143,7 +139,7 @@ export const Register = () => {
           <ul
             className={`nav__list d-flex align-items-center ${
               scroll
-                ? 'w-100 justify-content-start ms-5'
+                ? 'w-100 justify-content-start ms-xxl-4 '
                 : 'justify-content-between'
             }`}
           >
@@ -164,16 +160,12 @@ export const Register = () => {
             </li>
           </ul>
         </nav>
-      </motion.div>
-      <motion.div
-        className="signup-menu"
-        initial={{ y: -100 }}
-        animate={{ y: 0, transition: { duration: 0.7 } }}
-      >
+      </div>
+      <div className="signup-menu">
         <button className="menu-btn" onClick={() => openMenu()}>
           <i className="fa-solid fa-bars"></i>
         </button>
-      </motion.div>
+      </div>
 
       <section className="sign-up">
         <div className="sign-up__inner">
@@ -190,6 +182,9 @@ export const Register = () => {
             initial={{ x: 300, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1, transition: { duration: 1 } }}
           >
+            <button className="menu-btn menu-form" onClick={() => openMenu()}>
+              <i className="fa-solid fa-bars"></i>
+            </button>
             <h2>Ro'yxatdan o'tish</h2>
             <Formik
               initialValues={initialValues}
@@ -221,7 +216,7 @@ export const Register = () => {
                   <label className="label" htmlFor="phoneNumber">
                     Telefon raqamingiz
                   </label>
-                  <div className='d-flex align-items-center phone'>
+                  <div className="d-flex align-items-center phone">
                     <span>+998</span>
                     <Field name="phoneNumber" type="number" />
                     <span className="err-message" data-has-content>
@@ -253,7 +248,10 @@ export const Register = () => {
                   <Field name="district" type="text" list="district" />
                   <datalist id="district">
                     {districts.map((item) => (
-                      <option key={item.name} value={item.value}>
+                      <option
+                        key={item.name}
+                        value={item.name[0].toLowerCase() + item.name.slice(1)}
+                      >
                         {item.name}
                       </option>
                     ))}

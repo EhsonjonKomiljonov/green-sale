@@ -12,7 +12,7 @@
     height: 100vh;
     background-image: url('../../assets/images/bg-register.png');
     background-repeat: no-repeat;
-    background-position: left -100px center;
+    background-position: left center;
     background-size: 100% cover;
   }
 
@@ -29,6 +29,10 @@
     background-color: #ffffffe5;
     backdrop-filter: blur(10px);
     box-shadow: -10px 5px 50px #3333333f;
+
+    .menu-form {
+      display: none;
+    }
 
     h2 {
       margin-bottom: 40px;
@@ -223,6 +227,7 @@
       }
 
       .menu-form {
+        display: block;
         margin: 20px 20px 0;
       }
 
@@ -235,7 +240,7 @@
 
 @media screen and (max-width: 370px) {
   .sign-up__form-box {
-    h2{
+    h2 {
       font-size: 24px !important;
     }
 

@@ -98,7 +98,6 @@ export const Register = () => {
 
   const onSubmit = (values, { resetForm }) => {
     const formData = new FormData();
-    console.log(values);
 
     formData.append('firstName', values.firstName);
     formData.append('lastName', values.lastName);
@@ -251,9 +250,7 @@ export const Register = () => {
                       <option
                         key={item.name}
                         value={item.name[0].toLowerCase() + item.name.slice(1)}
-                      >
-                        {item.name}
-                      </option>
+                      ></option>
                     ))}
                   </datalist>
                   <span className="err-message" data-has-content>
@@ -284,7 +281,7 @@ export const Register = () => {
                 <div className="btn-box">
                   <button type="submit">Yuborish</button>
                   <Link to="/login">
-                    Kirish <i class="fa-solid fa-arrow-right"></i>
+                    Kirish <i className="fa-solid fa-arrow-right"></i>
                   </Link>
                 </div>
               </Form>

@@ -59,7 +59,7 @@ export const Register = () => {
     district: Yup.string().required('Iltimos tumanni tanlang!'),
     address: Yup.string()
       .required('Iltimos Mahalla nomini kiriting!')
-      .min(4, "Mahalla eng kami 3 harf bo'lishi lozim!"),
+      .min(2, "Mahalla eng kami 2 harf bo'lishi lozim!"),
     password: Yup.string()
       .required('Iltimos parolingizni kiriting!')
       .matches(/[0-9]/, "Parolda bir dona bo'lsa ham raqam bo'lishi lozim!")

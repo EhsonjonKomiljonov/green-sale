@@ -101,11 +101,12 @@
 
 .site-header__center {
   label {
-    width: 500px;
+    width: 100%;
+    max-width: 450px;
   }
 
   input {
-    width: 80%;
+    width: 90%;
     outline: none;
     padding: 10px;
     font-size: 13px;
@@ -122,16 +123,16 @@
     }
   }
 
-  .like {
+  .site-header__center-links {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 35px;
-    height: 35px;
-    border: 1px solid #ffffff90;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 370px;
 
-    i {
-      font-size: 17px;
+    .like {
+      padding: 5px 8px;
+      border: 2px solid #f3f3f3;
       color: #fff;
     }
   }
@@ -280,6 +281,18 @@
   }
 }
 
+@media screen and (max-width: 960px) {
+  .site-header__center {
+    label {
+      max-width: 300px;
+    }
+
+    input {
+      width: 84%;
+    }
+  }
+}
+
 @media screen and (max-width: 925px) {
   .site-header__bottom {
     .nav {
@@ -318,6 +331,13 @@
 }
 
 @media screen and (max-width: 700px) {
+  .site-header__center-links {
+    max-width: 340px !important;
+    .like {
+      font-size: 15px;
+    }
+  }
+
   #log-out-modal {
     div {
       width: 100%;
@@ -341,6 +361,15 @@
   }
 }
 
+@media screen and (max-width: 576px) {
+  .site-header__center-links {
+    max-width: 10px !important;
+    .like {
+      display: none !important;
+    }
+  }
+}
+
 @media screen and (max-width: 360px) {
   .menu__inner {
     max-width: 250px;
@@ -350,7 +379,7 @@
     div {
       width: 100%;
       max-width: 300px;
-      height: 300px; 
+      height: 300px;
     }
 
     a {

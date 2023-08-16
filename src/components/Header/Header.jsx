@@ -86,9 +86,14 @@ export const Header = () => {
                   <i className="fa-solid fa-magnifying-glass"></i>
                 </button>
               </label>
-              <Link className="like rounded-1" to="/cart">
-                <i className="fa fa-heart"></i>
-              </Link>
+              <div className='site-header__center-links'>
+                <Link className="like rounded-1" to="/buy-vacancies">
+                  Oluvchi vakansiyalar
+                </Link>
+                <Link className="like rounded-1" to="/sell-vacancies">
+                  Sotuvchi vakansiyalar
+                </Link>
+              </div>
             </div>
             <div className="site-header__bottom">
               <nav
@@ -155,6 +160,12 @@ export const Header = () => {
               </li>
               <li>
                 <Link to="/sell-vacancy">Sotish uchun vakansiya</Link>
+              </li>
+              <li>
+                <Link to="/buy-vacancies">Oluvchi vakansiyalar</Link>
+              </li>
+              <li>
+                <Link to="/sell-vacancies">Sotuvchi vakansiyalar</Link>
               </li>
               <li>
                 <Link to="/about">Biz Haqimizda</Link>

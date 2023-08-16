@@ -183,8 +183,8 @@ export const Login = () => {
 
                 <div className="btn-box">
                   <GreenButton text="Yuborish" type="submit" />
-                  <Link to="/login">
-                    Ro'yxatdan o'tish{' '}
+                  <Link to="/register">
+                    Ro'yxatdan o'tish
                     <i className="fa-solid fa-arrow-right"></i>
                   </Link>
                 </div>

@@ -167,9 +167,9 @@ export const Header = () => {
           <button
             onClick={() => {
               setTimeout(() => {
+                location.reload();
                 dispatch(removeToken());
                 localStorage.removeItem('token');
-                location.reload();
               }, 3000);
             }}
           >

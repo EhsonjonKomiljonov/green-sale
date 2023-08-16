@@ -14,7 +14,7 @@ export const Products = () => {
     <section className="products py-5">
       <div className="container">
         <h2 className="mb-5">Products</h2>
-        <div className="products__inner d-flex align-items-center flex-wrap">
+        <div className="products__inner d-flex flex-wrap">
           {data.length ? (
             data.map((item) => <ProductCard obj={item} />)
           ) : (

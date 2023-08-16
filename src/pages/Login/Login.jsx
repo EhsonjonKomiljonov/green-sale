@@ -75,8 +75,8 @@ export const Login = () => {
     onError: (err) => {
       setIsLoading(false);
       toast.error(
-        err.response.data.ErrorMessage == 'User already exists'
-          ? "Bunday user avval ro'yhatdan o'tgan!"
+        err.response.data.ErrorMessage == 'User not found!'
+          ? "Bunday foydalanuvchi mavjud emas!"
           : err.response.data.ErrorMessage
       );
     },

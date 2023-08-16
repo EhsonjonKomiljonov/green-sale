@@ -92,7 +92,7 @@ export const Register = () => {
       setIsLoading(false);
       toast.error(
         err.response.data.ErrorMessage == 'User already exists'
-          ? "Bunday user avval ro'yhatdan o'tgan!"
+          ? "Bunday foydalanuvchi avval ro'yhatdan o'tgan!"
           : err.response.data.ErrorMessage
       );
       if (!err.response.data.ErrorMessage) {

@@ -95,6 +95,13 @@ export const Register = () => {
           ? "Bunday user avval ro'yhatdan o'tgan!"
           : err.response.data.ErrorMessage
       );
+      if (!err.response.data.ErrorMessage) {
+        toast.error(
+          err.message == 'Network Error'
+            ? "Serverda xatolik qaytadan urinib ko'ring!"
+            : err.message
+        );
+      }
     },
   });
 

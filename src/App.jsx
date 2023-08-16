@@ -14,6 +14,7 @@ const queryClient = new QueryClient();
 
 function App() {
   const dispatch = useDispatch();
+  document.body.style.overflow = 'auto'
 
   dispatch(setToken(localStorage.getItem('token') || ''));
 

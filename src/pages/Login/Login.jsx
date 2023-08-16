@@ -12,11 +12,14 @@ import { GreenButton } from '../../components/GreenButton/GreenButton';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { setToken } from '../../redux/token/tokenAction';
+import { LoadingContext } from '../../context/loadingContext';
+import { Loading } from '../../components/Loading/Loading';
 
 export const Login = () => {
   const [menu, setMenu] = useState(false);
   const navigate = useNavigate();
   const { setAuth } = useContext(AuthContext);
+  const { isLoading, setIsLoading } = useContext(LoadingContext);
   const dispatch = useDispatch();
   document.body.style.overflow = 'hidden';
 
@@ -60,15 +63,17 @@ export const Login = () => {
   const { mutate } = useMutation('signin-user', API.loginUser, {
     onSuccess: (data) => {
       if (data.data.token) {
+        setIsLoading(false);
         localStorage.setItem('token', data.data.token);
         dispatch(setToken(data.data.token));
-        toast.success('Kirish muvaffaqiyatli bitdi!');
+        toast.success('Kirish muvaffaqiyatli yakunlandi!');
         setTimeout(() => {
           navigate('/');
-        }, 3000);
+        }, 1000);
       }
     },
     onError: (err) => {
+      setIsLoading(false);
       toast.error(
         err.response.data.ErrorMessage == 'User already exists'
           ? "Bunday user avval ro'yhatdan o'tgan!"
@@ -78,6 +83,7 @@ export const Login = () => {
   });
 
   const onSubmit = (values, { resetForm }) => {
+    setIsLoading(true);
     setAuth('+998' + values.phoneNumber);
     mutate({
       phoneNumber: '+998' + values.phoneNumber,
@@ -228,6 +234,7 @@ export const Login = () => {
           </ul>
         </div>
       </div>
+      {isLoading ? <Loading /> : ''}
     </>
   );
 };

@@ -12,13 +12,15 @@ import { districts } from '../../db/districts';
 import { GreenButton } from '../../components/GreenButton/GreenButton';
 import '../../components/Header/header.scss';
 import './register.scss';
+import { LoadingContext } from '../../context/loadingContext';
+import { Loading } from '../../components/Loading/Loading';
 
 export const Register = () => {
   const [menu, setMenu] = useState(false);
   const navigate = useNavigate();
   const { setAuth } = useContext(AuthContext);
+  const { isLoading, setIsLoading } = useContext(LoadingContext);
   document.body.style.overflow = 'hidden';
-
 
   const openMenu = () => {
     setMenu(true);
@@ -80,10 +82,14 @@ export const Register = () => {
   const { mutate } = useMutation('signup-user', API.registerUser, {
     onSuccess: (data) => {
       if (data.data.result) {
-        navigate('/verify-contact');
+        setIsLoading(false);
+        setTimeout(() => {
+          navigate('/verify-contact');
+        }, 1000);
       }
     },
     onError: (err) => {
+      setIsLoading(false);
       toast.error(
         err.response.data.ErrorMessage == 'User already exists'
           ? "Bunday user avval ro'yhatdan o'tgan!"
@@ -94,11 +100,24 @@ export const Register = () => {
 
   const { mutate: mutateContact } = useMutation('send-code', API.sendContact, {
     onSuccess: (data) => {
-      console.log(data);
+      setIsLoading(true);
+      if (data.data.result) {
+        setIsLoading(false);
+        console.log(data);
+      }
+    },
+    onError: (err) => {
+      setIsLoading(false);
+      toast.error(
+        err.message == 'Network Error'
+          ? "Serverda xatolik qaytadan urinib ko'ring!"
+          : err.message
+      );
     },
   });
 
   const onSubmit = (values, { resetForm }) => {
+    setIsLoading(true);
     const formData = new FormData();
 
     formData.append('firstName', values.firstName);
@@ -326,6 +345,8 @@ export const Register = () => {
           </ul>
         </div>
       </div>
+
+      {isLoading ? <Loading /> : ''}
     </>
   );
 };

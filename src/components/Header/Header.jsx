@@ -11,7 +11,6 @@ export const Header = () => {
   const [scroll, setScroll] = useState(false);
   let lastScrollY = 0;
   const [menu, setMenu] = useState(false);
-  const [loading, setLoading] = useState(false);
 
   const openMenu = () => {
     setMenu(true);
@@ -57,24 +56,17 @@ export const Header = () => {
               </select>
               <span className="localization__arrow"></span>
             </div>
-            <button
+            <a
+              href="#log-out-modal"
               className={`btn text-white ${token ? '' : 'd-none'}`}
-              onClick={() => {
-                setLoading(true);
-                setTimeout(() => {
-                  dispatch(removeToken());
-                  localStorage.removeItem('token');
-                  setLoading(false);
-                }, 3000);
-              }}
             >
-              Log Out
-            </button>
+              Chiqish
+            </a>
             <div className={`site-header__sign ${token ? 'd-none' : ''}`}>
               <Link className="me-3" to="/login">
-                Login
+                Kirish
               </Link>
-              <Link to="/register">Register</Link>
+              <Link to="/register">Ro'yxatdan o'tish</Link>
             </div>
           </div>
           <div className="site-header__center d-flex align-items-center justify-content-between">
@@ -167,6 +159,22 @@ export const Header = () => {
               <Link to="/faq">FAQ</Link>
             </li>
           </ul>
+        </div>
+      </div>
+      <div id="log-out-modal">
+        <div>
+          <a href="#">&times;</a>
+          <button
+            onClick={() => {
+              setTimeout(() => {
+                dispatch(removeToken());
+                localStorage.removeItem('token');
+                location.reload();
+              }, 3000);
+            }}
+          >
+            Chiqishni tasdiqlash!
+          </button>
         </div>
       </div>
     </header>

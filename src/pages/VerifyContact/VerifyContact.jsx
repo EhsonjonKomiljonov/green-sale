@@ -17,7 +17,7 @@ export const VerifyContact = () => {
   const dispatch = useDispatch();
   const { auth } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [timer, setTimer] = useState(10);
+  const [timer, setTimer] = useState(90);
   const [isError, setIsError] = useState(false);
 
   const { mutate: newPassword } = useMutation(

@@ -8,10 +8,10 @@ import { API } from '../../API/api';
 import { AuthContext } from '../../context/AuthContext';
 import { cities } from '../../db/cities';
 import { motion } from 'framer-motion';
-import '../../components/Header/header.scss';
-import './register.scss';
 import { districts } from '../../db/districts';
 import { GreenButton } from '../../components/GreenButton/GreenButton';
+import '../../components/Header/header.scss';
+import './register.scss';
 
 export const Register = () => {
   const [menu, setMenu] = useState(false);

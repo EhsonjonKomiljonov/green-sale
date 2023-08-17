@@ -10,4 +10,6 @@ export const API = {
     axios.post(
       host + `/api/auth/register/send-code?phone=${phone.replace('+', '%2B')}`
     ),
+  updatePassword: (data) => axios.post(host + '/api/auth/password/reset', data),
+  verifyNewPassword: (data) => axios.post(host + '/api/auth/password/verify', data),
 };

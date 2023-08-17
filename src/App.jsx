@@ -10,6 +10,7 @@ import { VerifyContact } from './pages/VerifyContact/VerifyContact';
 import { ToastContainer } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { setToken } from './redux/token/tokenAction';
+import { UpdatePassword } from './pages/UpdatePassword/UpdatePassword';
 const queryClient = new QueryClient();
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/verify-contact" element={<VerifyContact />} />
+          <Route path="/new-password" element={<UpdatePassword />} />
         </Routes>
       </main>
       <ToastContainer

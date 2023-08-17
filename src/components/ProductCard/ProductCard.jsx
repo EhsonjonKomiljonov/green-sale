@@ -2,9 +2,9 @@ import './product-card.scss';
 
 export const ProductCard = ({ obj }) => {
   const { title, desc, img, time } = obj;
-  const sellered = 1;
+  const sellered = 0;
   return (
-    <div
+    <div 
       className={
         sellered == 0
           ? 'product-card'
@@ -20,13 +20,13 @@ export const ProductCard = ({ obj }) => {
             {sellered ? 'Kelishilgan' : 'Yangi'}
           </span>
           <time className="product-card__time" dateTime="2023-08-10">
-            <i class="fa-solid fa-clock"></i> {time}
+            <i className="fa-solid fa-clock"></i> {time}
           </time>
         </div>
         <h3 className="product-card__title m-0">{title}</h3>
         <p className="product-card__desc">{desc}</p>
         <p className="product-card__region">
-          <i class="fa-solid fa-truck"></i>
+          <i className="fa-solid fa-truck"></i>
           Manzil: Andijon, Olmaliq
         </p>
       </div>

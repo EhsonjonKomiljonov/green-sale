@@ -10,7 +10,7 @@ import { GreenButton } from '../GreenButton/GreenButton';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { setToken } from '../../redux/token/tokenAction';
-import { LoadingContext } from '../../context/loadingContext';
+import { LoadingContext } from '../../context/LoadingContext';
 import { Loading } from '../Loading/Loading';
 import '../Header/header.scss';
 import './login-form.scss';

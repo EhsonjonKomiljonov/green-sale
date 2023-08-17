@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../../assets/images/logo.svg';
-import { LoadingContext } from '../../context/loadingContext';
+import { LoadingContext } from '../../context/LoadingContext';
 import { removeToken } from '../../redux/token/tokenAction';
 import { Loading } from '../Loading/Loading';
 import './header.scss';
@@ -86,7 +86,7 @@ export const Header = () => {
                   <i className="fa-solid fa-magnifying-glass"></i>
                 </button>
               </label>
-              <div className='site-header__center-links'>
+              <div className="site-header__center-links">
                 <Link className="like rounded-1" to="/buy-vacancies">
                   Oluvchi vakansiyalar
                 </Link>

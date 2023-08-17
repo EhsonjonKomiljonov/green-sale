@@ -12,7 +12,7 @@ import { districts } from '../../db/districts';
 import { GreenButton } from '../GreenButton/GreenButton';
 import '../Header/header.scss';
 import './register-form.scss';
-import { LoadingContext } from '../../context/loadingContext';
+import { LoadingContext } from '../../context/LoadingContext';
 import { Loading } from '../Loading/Loading';
 import { VerifyContactContext } from '../../context/VerifyContactContext';
 

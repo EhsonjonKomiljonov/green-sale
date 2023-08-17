@@ -7,7 +7,7 @@ import { useMutation } from 'react-query';
 import { API } from '../../API/api';
 import { toast } from 'react-toastify';
 import { useContext } from 'react';
-import { LoadingContext } from '../../context/loadingContext';
+import { LoadingContext } from '../../context/LoadingContext';
 import { Loading } from '../Loading/Loading';
 import { VerifyContactContext } from '../../context/VerifyContactContext';
 import { AuthContext } from '../../context/AuthContext';
@@ -108,7 +108,7 @@ export const UpdatePasswordForm = () => {
                   </span>
                 </div>
 
-                <div className='verify__btn-box'>
+                <div className="verify__btn-box">
                   <GreenButton text="Yuborish" type="submit" />
                   <Link
                     className="d-block text-center text-dark mt-4 fs-5"

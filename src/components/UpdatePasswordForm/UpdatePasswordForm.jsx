@@ -77,7 +77,7 @@ export const UpdatePasswordForm = () => {
           <div className="update-password__inner">
             <h2>Yangi parol</h2>
             <p className="mb-4 mt-3 text-center">
-              Bir dona oddiy yo'l bilan parolingizni yangilang.
+              Bir urinishda parolinggizni yangilang.
             </p>
             <Formik
               initialValues={initialValues}

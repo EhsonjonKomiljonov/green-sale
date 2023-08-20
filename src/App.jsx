@@ -10,6 +10,7 @@ import { VerifyContact } from './pages/VerifyContact/VerifyContact';
 import { ToastContainer } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { setToken } from './redux/token/tokenAction';
+import { SellVacancyAdd } from './components/SellVacancyAdd/SellVacancyAdd';
 const queryClient = new QueryClient();
 
 function App() {
@@ -21,14 +22,30 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <main>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/verify-contact" element={<VerifyContact />} />
+          <Route
+            path='/'
+            element={<Home />}
+          />
+          <Route
+            path='/sell-vacancy'
+            element={<SellVacancyAdd />}
+          />
+          <Route
+            path='/login'
+            element={<Login />}
+          />
+          <Route
+            path='/register'
+            element={<Register />}
+          />
+          <Route
+            path='/verify-contact'
+            element={<VerifyContact />}
+          />
         </Routes>
       </main>
       <ToastContainer
-        position="top-right"
+        position='top-right'
         autoClose={4000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -37,7 +54,7 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
+        theme='light'
       />
     </QueryClientProvider>
   );

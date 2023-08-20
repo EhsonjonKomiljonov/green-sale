@@ -9,4 +9,13 @@ export const API = {
     axios.post(
       host + `/api/auth/register/send-code?phone=${phone.replace('+', '%2B')}`
     ),
+  createSeller: (formData) =>
+    axios.post(host + '/api/client/seller/post', {
+      headers: {
+        Bearer: 'Bearer' + ' ' + localStorage.getItem('token'),
+      },
+      formData,
+    }),
 };
+
+console.log('Bearer' + ' ' + localStorage.getItem('token'));

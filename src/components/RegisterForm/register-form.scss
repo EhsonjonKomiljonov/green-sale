@@ -1,5 +1,7 @@
 .sign-up {
   padding-top: 34px;
+  height: 100vh;
+  overflow: hidden !important;
 
   &__inner {
     display: flex;
@@ -13,7 +15,7 @@
     background-image: url('../../assets/images/bg-register.png');
     background-repeat: no-repeat;
     background-position: left center;
-    background-size: 100% cover;
+    background-size: 100%;
   }
 
   &__form-box {
@@ -81,7 +83,7 @@
 
     span {
       position: absolute;
-      top: 30px;
+      top: 60px;
       right: 0;
       color: #e74646;
       font-weight: 600;
@@ -144,6 +146,10 @@
   .sign-up {
     &__form-box {
       max-width: 400px;
+
+      span {
+        font-size: 11px;
+      }
     }
   }
 }
@@ -206,7 +212,7 @@
 
   .sign-up {
     &__form-box {
-      padding: 0 0 0 30px;
+      padding: 0 ;
       z-index: 4;
 
       h2 {
@@ -225,7 +231,7 @@
   }
 }
 
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 375px) {
   .sign-up__form-box {
     h2 {
       font-size: 24px !important;
@@ -235,6 +241,10 @@
       margin-right: 20px !important;
       border-radius: 30px !important;
       font-size: 18px !important;
+    }
+
+    span {
+      font-size: 9.3px;
     }
   }
 }

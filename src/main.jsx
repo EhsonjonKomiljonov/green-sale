@@ -7,13 +7,19 @@ import App from './App.jsx';
 import { AuthProvider } from './context/AuthContext.jsx';
 import { Provider } from 'react-redux';
 import { store } from './redux/store.js';
+import { LoadingProvider } from './context/LoadingContext.jsx';
+import { VerifyContactProvider } from './context/VerifyContactContext.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Provider store={store}>
-      <AuthProvider>
-        <App />
-      </AuthProvider>
+      <LoadingProvider>
+        <AuthProvider>
+          <VerifyContactProvider>
+            <App />
+          </VerifyContactProvider>
+        </AuthProvider>
+      </LoadingProvider>
     </Provider>
   </BrowserRouter>
 );

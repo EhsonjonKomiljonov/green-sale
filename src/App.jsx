@@ -11,10 +11,12 @@ import { ToastContainer } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { setToken } from './redux/token/tokenAction';
 import { SellVacancyAdd } from './components/SellVacancyAdd/SellVacancyAdd';
+import { UpdatePassword } from './pages/UpdatePassword/UpdatePassword';
 const queryClient = new QueryClient();
 
 function App() {
   const dispatch = useDispatch();
+  document.body.style.overflow = 'auto';
 
   dispatch(setToken(localStorage.getItem('token') || ''));
 
@@ -23,12 +25,12 @@ function App() {
       <main>
         <Routes>
           <Route
-            path='/'
-            element={<Home />}
-          />
-          <Route
             path='/sell-vacancy'
             element={<SellVacancyAdd />}
+          />
+          <Route
+            path='/'
+            element={<Home />}
           />
           <Route
             path='/login'
@@ -41,6 +43,10 @@ function App() {
           <Route
             path='/verify-contact'
             element={<VerifyContact />}
+          />
+          <Route
+            path='/new-password'
+            element={<UpdatePassword />}
           />
         </Routes>
       </main>

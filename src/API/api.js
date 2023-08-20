@@ -4,6 +4,7 @@ const host = 'http://95.130.227.180';
 
 export const API = {
   registerUser: (user) => axios.post(host + '/api/auth/register', user),
+  loginUser: (user) => axios.post(host + '/api/auth/login', user),
   verifyContact: (obj) => axios.post(host + '/api/auth/register/verify', obj),
   sendContact: (phone) =>
     axios.post(
@@ -16,6 +17,8 @@ export const API = {
       },
       formData,
     }),
+  updatePassword: (data) => axios.post(host + '/api/auth/password/reset', data),
+  verifyNewPassword: (data) => axios.post(host + '/api/auth/password/verify', data),
 };
 
 console.log('Bearer' + ' ' + localStorage.getItem('token'));

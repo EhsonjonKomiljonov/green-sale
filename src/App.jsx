@@ -10,10 +10,9 @@ import { VerifyContact } from './pages/VerifyContact/VerifyContact';
 import { ToastContainer } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { setToken } from './redux/token/tokenAction';
+import { SellVacancyAdd } from './components/SellVacancyAdd/SellVacancyAdd';
 import { UpdatePassword } from './pages/UpdatePassword/UpdatePassword';
 import { MyProfile } from './pages/MyProfile/MyProfile';
-import { API } from './API/api';
-import { useEffect } from 'react';
 const queryClient = new QueryClient();
 
 function App() {
@@ -31,6 +30,7 @@ function App() {
           <Route path="/verify-contact" element={<VerifyContact />} />
           <Route path="/new-password" element={<UpdatePassword />} />
           <Route path="/my-profile" element={<MyProfile />} />
+          <Route path="/sell-vacancy" element={<SellVacancyAdd />} />
         </Routes>
       </main>
       <ToastContainer

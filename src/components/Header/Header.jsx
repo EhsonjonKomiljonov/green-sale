@@ -1,8 +1,12 @@
 import { useContext, useEffect, useRef, useState } from 'react';
+import { useMutation } from 'react-query';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { API } from '../../API/api';
 import Logo from '../../assets/images/logo.svg';
 import { LoadingContext } from '../../context/LoadingContext';
+import { VerifyTokenContext } from '../../context/VerifyToken';
 import { removeToken } from '../../redux/token/tokenAction';
 import { Loading } from '../Loading/Loading';
 import './header.scss';
@@ -10,10 +14,26 @@ import './header.scss';
 export const Header = () => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.token.token);
-  const { isLoading, setIsLoading } = useContext(LoadingContext);
+  const [ isLoading, setIsLoading ] = useState(false);
+  const { verifyToken, setVerifyToken } = useContext(VerifyTokenContext);
   const [scroll, setScroll] = useState(false);
   const [menu, setMenu] = useState(false);
   let lastScrollY = 0;
+
+  const { mutate } = useMutation('verify-token', API.verifyToken, {
+    onSuccess: (data) => {
+      setIsLoading(false);
+      if (data.data) {
+        setIsLoading(false);
+        setVerifyToken(true);
+      } else setVerifyToken(false);
+    },
+    onError: (err) => {
+      setIsLoading(false);
+      setVerifyToken(false);
+      toast.error('Qandaydur xatolik saytni yangilang!');
+    },
+  });
 
   const openMenu = () => {
     setMenu(true);
@@ -26,6 +46,8 @@ export const Header = () => {
   };
 
   useEffect(() => {
+    mutate(token);
+
     const handleScroll = () => {
       const scrollY = window.pageYOffset;
 
@@ -60,13 +82,33 @@ export const Header = () => {
                 </select>
                 <span className="localization__arrow"></span>
               </div>
-              <a
-                href="#log-out-modal"
-                className={`btn text-white ${token ? '' : 'd-none'}`}
+              <div className="d-flex align-items-center">
+                <Link
+                  style={{
+                    fontSize: '13px',
+                  }}
+                  to="/my-profile"
+                  className={`text-white text-opacity-50 ${
+                    verifyToken ? '' : 'd-none'
+                  }`}
+                >
+                  Mening profilim
+                </Link>
+                <a
+                  style={{
+                    fontSize: '13px',
+                  }}
+                  href="#log-out-modal"
+                  className={`btn text-white text-opacity-50 ${
+                    verifyToken ? '' : 'd-none'
+                  }`}
+                >
+                  Chiqish
+                </a>
+              </div>
+              <div
+                className={`site-header__sign ${verifyToken ? 'd-none' : ''}`}
               >
-                Chiqish
-              </a>
-              <div className={`site-header__sign ${token ? 'd-none' : ''}`}>
                 <Link className="me-3" to="/login">
                   Kirish
                 </Link>
@@ -177,6 +219,7 @@ export const Header = () => {
           </div>
         </div>
         <div id="log-out-modal">
+          <a className='close-modal-bg' href="#"></a>
           <div>
             <a href="#">&times;</a>
             <button
@@ -184,7 +227,7 @@ export const Header = () => {
                 setIsLoading(true);
                 setTimeout(() => {
                   localStorage.removeItem('token');
-                  location.reload();
+                  location.replace('/');
                   dispatch(removeToken());
                   setIsLoading(false);
                 }, 3000);
@@ -194,7 +237,7 @@ export const Header = () => {
             </button>
           </div>
         </div>
-      </header>
+      </header> 
 
       {isLoading ? <Loading /> : ''}
     </>

@@ -134,10 +134,7 @@ export const RegisterForm = () => {
       'region',
       values.region ? values.region : 'toshkent shahri'
     );
-    formData.append(
-      'district',
-      values.district ? values.district : 'toshkent shahri'
-    );
+    formData.append('district', values.district);
     formData.append('address', values.address);
     formData.append('phoneNumber', '+998' + values.phoneNumber);
     formData.append('password', values.password);

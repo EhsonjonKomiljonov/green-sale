@@ -1,10 +1,10 @@
-import './loading.scss'
-import LoadingImg from '../../assets/images/loading.svg'
+import './loading.scss';
+import LoadingImg from '../../assets/images/loading.svg';
 
-export const Loading = () => {
+export const Loading = ({ img }) => {
   return (
-    <div className='loading' >
-      <img src={LoadingImg} alt="Loading..." />
+    <div className="loading">
+      <img src={img ? img : LoadingImg} alt="Loading..." />
     </div>
-  )
-}
+  );
+};

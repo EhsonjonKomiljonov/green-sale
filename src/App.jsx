@@ -5,17 +5,19 @@ import { Home } from './pages/Home/Home';
 import { Route, Routes } from 'react-router-dom';
 import { Login } from './pages/Login/Login';
 import { Register } from './pages/Register/Register';
-import { QueryClientProvider, QueryClient } from 'react-query';
+import { QueryClientProvider, QueryClient, useMutation } from 'react-query';
 import { VerifyContact } from './pages/VerifyContact/VerifyContact';
 import { ToastContainer } from 'react-toastify';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setToken } from './redux/token/tokenAction';
 import { UpdatePassword } from './pages/UpdatePassword/UpdatePassword';
+import { MyProfile } from './pages/MyProfile/MyProfile';
+import { API } from './API/api';
+import { useEffect } from 'react';
 const queryClient = new QueryClient();
 
 function App() {
   const dispatch = useDispatch();
-  document.body.style.overflow = 'auto'
 
   dispatch(setToken(localStorage.getItem('token') || ''));
 
@@ -28,6 +30,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/verify-contact" element={<VerifyContact />} />
           <Route path="/new-password" element={<UpdatePassword />} />
+          <Route path="/my-profile" element={<MyProfile />} />
         </Routes>
       </main>
       <ToastContainer

@@ -40,6 +40,18 @@
   z-index: 10;
   display: none;
   background-color: #00000074;
+  backdrop-filter: blur(5px);
+
+  .close-modal-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: none;
+    padding: 0 25px;
+    border: none;
+  }
 
   div {
     position: relative;
@@ -83,6 +95,10 @@
 #log-out-modal:target {
   display: grid;
   place-items: center;
+
+  .close-modal-bg {
+    display: block;
+  }
 }
 
 .menu-btn {

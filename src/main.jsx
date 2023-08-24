@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import { store } from './redux/store.js';
 import { LoadingProvider } from './context/LoadingContext.jsx';
 import { VerifyContactProvider } from './context/VerifyContactContext.jsx';
+import { VerifyTokenProvider } from './context/VerifyToken.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -16,7 +17,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <LoadingProvider>
         <AuthProvider>
           <VerifyContactProvider>
-            <App />
+            <VerifyTokenProvider>
+              <App />
+            </VerifyTokenProvider>
           </VerifyContactProvider>
         </AuthProvider>
       </LoadingProvider>

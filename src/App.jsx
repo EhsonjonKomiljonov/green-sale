@@ -5,18 +5,18 @@ import { Home } from './pages/Home/Home';
 import { Route, Routes } from 'react-router-dom';
 import { Login } from './pages/Login/Login';
 import { Register } from './pages/Register/Register';
-import { QueryClientProvider, QueryClient } from 'react-query';
+import { QueryClientProvider, QueryClient, useMutation } from 'react-query';
 import { VerifyContact } from './pages/VerifyContact/VerifyContact';
 import { ToastContainer } from 'react-toastify';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setToken } from './redux/token/tokenAction';
 import { SellVacancyAdd } from './components/SellVacancyAdd/SellVacancyAdd';
 import { UpdatePassword } from './pages/UpdatePassword/UpdatePassword';
+import { MyProfile } from './pages/MyProfile/MyProfile';
 const queryClient = new QueryClient();
 
 function App() {
   const dispatch = useDispatch();
-  document.body.style.overflow = 'auto';
 
   dispatch(setToken(localStorage.getItem('token') || ''));
 
@@ -24,34 +24,17 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <main>
         <Routes>
-          <Route
-            path='/sell-vacancy'
-            element={<SellVacancyAdd />}
-          />
-          <Route
-            path='/'
-            element={<Home />}
-          />
-          <Route
-            path='/login'
-            element={<Login />}
-          />
-          <Route
-            path='/register'
-            element={<Register />}
-          />
-          <Route
-            path='/verify-contact'
-            element={<VerifyContact />}
-          />
-          <Route
-            path='/new-password'
-            element={<UpdatePassword />}
-          />
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/verify-contact" element={<VerifyContact />} />
+          <Route path="/new-password" element={<UpdatePassword />} />
+          <Route path="/my-profile" element={<MyProfile />} />
+          <Route path="/sell-vacancies" element={<SellVacancyAdd />} />
         </Routes>
       </main>
       <ToastContainer
-        position='top-right'
+        position="top-right"
         autoClose={4000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -60,7 +43,7 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme='light'
+        theme="light"
       />
     </QueryClientProvider>
   );

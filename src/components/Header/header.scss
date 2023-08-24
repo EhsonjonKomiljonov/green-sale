@@ -24,6 +24,18 @@
   }
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 19px;
+  color: #fff;
+
+  p {
+    margin-top: 5px;
+  }
+}
+
 .site-header__sign {
   a {
     color: #aaa;
@@ -40,6 +52,18 @@
   z-index: 10;
   display: none;
   background-color: #00000074;
+  backdrop-filter: blur(5px);
+
+  .close-modal-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: none;
+    padding: 0 25px;
+    border: none;
+  }
 
   div {
     position: relative;
@@ -83,6 +107,10 @@
 #log-out-modal:target {
   display: grid;
   place-items: center;
+
+  .close-modal-bg {
+    display: block;
+  }
 }
 
 .menu-btn {
@@ -281,7 +309,7 @@
   }
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1020px) {
   .site-header__center {
     label {
       max-width: 300px;
@@ -306,7 +334,7 @@
   }
 }
 
-@media screen and (max-width: 835px) {
+@media screen and (max-width: 860px) {
   .site-header {
     padding: 5px 0 15px;
   }
@@ -318,7 +346,6 @@
   }
 
   .site-header__center {
-    align-items: flex-end !important;
 
     label {
       display: none;

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const host = 'http://95.130.227.180';
+const host = 'http://95.130.227.180:5000';
 
 export const API = {
   registerUser: (user) => axios.post(host + '/api/auth/register', user),
@@ -13,12 +13,13 @@ export const API = {
   createSeller: (formData) =>
     axios.post(host + '/api/client/seller/post', {
       headers: {
-        Bearer: 'Bearer' + ' ' + localStorage.getItem('token'),
+        Authorization: 'Bearer' + ' ' + localStorage.getItem('token'),
       },
       formData,
     }),
   updatePassword: (data) => axios.post(host + '/api/auth/password/reset', data),
-  verifyNewPassword: (data) => axios.post(host + '/api/auth/password/verify', data),
+  verifyNewPassword: (data) =>
+    axios.post(host + '/api/auth/password/verify', data),
 };
 
 console.log('Bearer' + ' ' + localStorage.getItem('token'));

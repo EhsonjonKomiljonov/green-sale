@@ -30,7 +30,7 @@ function App() {
           <Route path="/verify-contact" element={<VerifyContact />} />
           <Route path="/new-password" element={<UpdatePassword />} />
           <Route path="/my-profile" element={<MyProfile />} />
-          <Route path="/sell-vacancy" element={<SellVacancyAdd />} />
+          <Route path="/sell-vacancies" element={<SellVacancyAdd />} />
         </Routes>
       </main>
       <ToastContainer

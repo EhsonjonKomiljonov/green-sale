@@ -5,7 +5,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { API } from '../../API/api';
 import Logo from '../../assets/images/logo.svg';
-import { LoadingContext } from '../../context/LoadingContext';
 import { VerifyTokenContext } from '../../context/VerifyToken';
 import { removeToken } from '../../redux/token/tokenAction';
 import { Loading } from '../Loading/Loading';
@@ -14,7 +13,7 @@ import './header.scss';
 export const Header = () => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.token.token);
-  const [ isLoading, setIsLoading ] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const { verifyToken, setVerifyToken } = useContext(VerifyTokenContext);
   const [scroll, setScroll] = useState(false);
   const [menu, setMenu] = useState(false);
@@ -119,8 +118,9 @@ export const Header = () => {
               <button className="menu-btn" onClick={() => openMenu()}>
                 <i className="fa-solid fa-bars"></i>
               </button>
-              <Link to="/">
-                <img src={Logo} alt="Brezza" />
+              <Link className="logo" to="/">
+                <img src={Logo} alt="Brezza" width="50px" />
+                <p>GREEN SALE</p>
               </Link>
               <label className="px-3 input-group">
                 <input type="text" placeholder="Search for product" />
@@ -219,7 +219,7 @@ export const Header = () => {
           </div>
         </div>
         <div id="log-out-modal">
-          <a className='close-modal-bg' href="#"></a>
+          <a className="close-modal-bg" href="#"></a>
           <div>
             <a href="#">&times;</a>
             <button
@@ -237,7 +237,7 @@ export const Header = () => {
             </button>
           </div>
         </div>
-      </header> 
+      </header>
 
       {isLoading ? <Loading /> : ''}
     </>

@@ -37,3 +37,12 @@
     color: #aaa;
   }
 }
+
+.footer__logo {
+  display: grid;
+  place-items: center;
+  a {
+    width: 100%;
+    max-width: 160px;
+  }
+}

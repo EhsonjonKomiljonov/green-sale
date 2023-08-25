@@ -25,16 +25,13 @@
   align-items: center;
   justify-content: center;
 }
-.sell_vacancy_left {
-  padding-top: 70px;
-}
 
 .sell_vacancy_right {
   flex-direction: column;
   overflow-y: scroll;
-  padding-top: 90px;
+  padding-top: 270px;
   height: 100vh;
-  padding-bottom: 20px;
+  padding-bottom: 60px;
   button {
     margin-top: 20px;
   }
@@ -89,6 +86,7 @@
 
 .sell__vacancy__title {
   color: #222;
+
   font-size: 40px;
 }
 
@@ -105,6 +103,9 @@
   appearance: none;
   color: #fff;
 }
+.sell__vacancy__select {
+  margin-top: 20px;
+}
 
 .error__message {
   font-size: 14px;
@@ -112,6 +113,13 @@
   position: absolute;
   right: 0;
   top: 100%;
+}
+
+.sell__vacancy__link {
+  color: #000;
+  font-weight: 600;
+  text-align: center;
+  padding-top: 30px;
 }
 
 @media screen and (max-width: 1050px) {
@@ -124,9 +132,11 @@
       width: 95% !important;
       overflow: inherit;
       height: auto;
+      padding-top: 80px;
     }
     .sell_vacancy_left {
       width: 95% !important;
+      padding-top: 50px;
     }
   }
   .sell__vacancy__label {
@@ -147,7 +157,7 @@
 
 @media screen and (max-width: 365px) {
   .sell__vacancy__label {
-    padding: 200px 0px 157px;  
+    padding: 200px 0px 157px;
     min-width: 265px;
   }
 }

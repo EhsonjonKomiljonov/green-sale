@@ -4,10 +4,13 @@ import './sellvacancyadd.scss';
 import { GreenButton } from '../../components/GreenButton/GreenButton';
 import * as Yup from 'yup';
 import { API } from '../../API/api';
-
+import { Link } from 'react-router-dom';
+import { districts } from '../../db/districts';
+import { cities } from '../../db/cities';
 export const SellVacancyAdd = () => {
   const filesRef = useRef();
   const selectRef = useRef();
+  const selectRef2 = useRef();
   const validationSchema = Yup.object({
     Title: Yup.string().required('Mahsulot nomini kiritish majburiy !!!'),
     Description: Yup.string().required('Izoh kiritish majburiy !!!'),
@@ -54,6 +57,7 @@ export const SellVacancyAdd = () => {
     const valueFormData = {
       ...values,
       CategoryId: selectRef.current.value,
+      District: selectRef2?.current.value,
       PhoneNumber: localStorage.getItem('phone'),
       imagePath: filesRef?.current?.files[0],
     };
@@ -187,14 +191,21 @@ export const SellVacancyAdd = () => {
                   </span>
                 </div>
                 <div className='sell__vacancy__input__box'>
-                  <label htmlFor='Region'>Shahar, Viloyat</label>
-                  <Field
+                  <select
+                    ref={selectRef2}
                     required
-                    type='text'
-                    name='Region'
-                    id='Region'
-                    className='sell__vacancy__input'
-                  />
+                    className='sell_vacancy__select sell__vacancy__select'
+                    defaultValue='1'
+                  >
+                    {cities.map((item) => (
+                      <option
+                        key={item.name}
+                        value={item.value}
+                      >
+                        {item.name}
+                      </option>
+                    ))}
+                  </select>
                   <span className='error__message'>
                     <ErrorMessage name='Region' />
                   </span>{' '}
@@ -202,15 +213,19 @@ export const SellVacancyAdd = () => {
                 <div className='sell__vacancy__input__box'>
                   <label htmlFor='District'>Tuman</label>
                   <Field
-                    required
-                    type='text'
-                    name='District'
-                    id='District'
                     className='sell__vacancy__input'
+                    name='District'
+                    type='text'
+                    list='District'
                   />
-                  <span className='error__message'>
-                    <ErrorMessage name='District' />
-                  </span>
+                  <datalist id='District'>
+                    {districts.map((item) => (
+                      <option
+                        key={item.name}
+                        value={item.name[0].toLowerCase() + item.name.slice(1)}
+                      ></option>
+                    ))}
+                  </datalist>
                 </div>
                 <div className='sell__vacancy__input__box'>
                   <label htmlFor='Description'>Izoh</label>
@@ -229,6 +244,12 @@ export const SellVacancyAdd = () => {
                   text='Yuborish'
                   type='submit'
                 />
+                <Link
+                  className='sell__vacancy__link'
+                  to='/'
+                >
+                  Bosh Sahifaga
+                </Link>
               </Form>
             </Formik>
           </div>

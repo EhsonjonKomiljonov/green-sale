@@ -1,10 +1,12 @@
 .sell_vacancy {
   background-image: url('../../assets/images/sell__vacancy__bg.svg');
   background-repeat: no-repeat;
-  background-position-y: -70px;
+  background-position-y: -30px;
 }
 
 .sell_vacancy__inner {
+  align-items: center;
+  justify-content: space-between;
   background-image: url('../../assets/images/sell__vacancy__bg2.svg');
   background-repeat: no-repeat;
   background-position: bottom;
@@ -27,11 +29,16 @@
 }
 
 .sell_vacancy_right {
+  width: 100%;
+  max-width: 600px;
   flex-direction: column;
   overflow-y: scroll;
   padding-top: 270px;
   height: 100vh;
   padding-bottom: 60px;
+  background-color: #ffffffd1;
+  backdrop-filter: blur(3px);
+
   button {
     margin-top: 20px;
   }
@@ -60,7 +67,7 @@
   padding: 240px 73px 203px;
   border-radius: 17px;
   border: 2px dashed #0b0b0b6b;
-  background: #fffffff5;
+  background-color: #ffffffdf;
   backdrop-filter: blur(5px);
   cursor: pointer;
 }
@@ -68,7 +75,7 @@
 .sell__vacancy__form {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 70%;
 }
 
 .sell__vacancy__input {
@@ -86,7 +93,6 @@
 
 .sell__vacancy__title {
   color: #222;
-
   font-size: 40px;
 }
 
@@ -116,10 +122,21 @@
 }
 
 .sell__vacancy__link {
-  color: #000;
-  font-weight: 600;
+  display: block;
   text-align: center;
-  padding-top: 30px;
+  margin-top: 20px;
+  color: #222;
+  font-size: 20px;
+  font-weight: 500;
+
+  i {
+    margin-left: 10px;
+    font-size: 18px;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 @media screen and (max-width: 1050px) {
@@ -146,6 +163,18 @@
   .sell__vacancy__form {
     display: flex;
     width: 62%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .sell__vacancy__form {
+    button {
+      width: 100%;
+    }
+
+    a {
+      font-size: 17px;
+    }
   }
 }
 

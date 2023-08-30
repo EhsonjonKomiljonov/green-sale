@@ -119,7 +119,7 @@ export const Header = () => {
                 <i className="fa-solid fa-bars"></i>
               </button>
               <Link className="logo" to="/">
-                <img src={Logo} alt="Brezza" width="50px" />
+                <img src={Logo} alt="Green Sale" width="50px" />
                 <p>GREEN SALE</p>
               </Link>
               <label className="px-3 input-group">

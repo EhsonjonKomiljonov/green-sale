@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const host = 'http://95.130.227.68:8080';
+const host = 'http://68.183.234.203:4040';
 
 export const API = {
   verifyToken: (token) =>
